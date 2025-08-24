@@ -1,0 +1,62 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+@layer base {
+  body {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+}
+
+
+
+
+
+
+.step-primary {
+  --tw-step-primary: #075E54 !important;
+}
+
+/* Force step-primary to use WhatsApp green */
+.steps .step-primary:before,
+.steps .step-primary:after {
+  background-color: #075E54 !important;
+  border-color: #075E54 !important;
+  color: #075E54 !important;
+}
+
+/* Bigger circle */
+.steps .step:after {
+  width: 2.5rem !important;   /* default ~1.5rem */
+  height: 2.5rem !important;
+  border-width: 3px !important; /* thicker border */
+}
+
+/* Thicker connecting line */
+.steps .step:before {
+  height: 2px !important; /* default ~2px */
+}
+
+/* Remove DaisyUI default border + black line */
+.steps .step:after {
+  background-color: white !important;   /* inactive circle is pure white */
+  border: none !important;              /* remove border */
+  color: transparent !important;        /* hide default number */
+}
+
+/* Active step circle */
+.steps .step.step-primary:after {
+  background-color: #075E54 !important; /* custom green */
+  border: none !important;              /* no border */
+}
+
+/* Connecting line (default) */
+.steps .step:before {
+  background-color: #C3C3C3 !important;   /* inactive = white */
+  border: none !important;
+}
+
+/* Connecting line when active */
+.steps .step.step-primary:before {
+  background-color: #075E54 !important; /* active = custom green */
+}

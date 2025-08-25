@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import tick from "../../assets/tick.svg";
-import logo from "../../assets/BRAINY.svg";
+import logo from "../../assets/LSbrainy.svg";
 import { Link } from "react-router-dom";
 
 const Signup = () => {
@@ -10,10 +10,10 @@ const Signup = () => {
   const prevStep = () => setStep((prev) => Math.max(prev - 1, 1));
 
   return (
-    <div className="w-full min-h-screen bg-white flex flex-col">
+    <div className="w-full min-h-screen bg-[#F4F4F4] flex flex-col">
       {/* Navbar */}
       <nav className="w-full py-4 shadow-md flex justify-center bg-white">
-        <img src={logo} alt="Logo" className="h-10" />
+        <Link to= "/"><img src={logo} alt="Logo" className="h-10" /></Link>
       </nav>
 
       <div className="flex justify-center items-center mt-10 text-3xl font-semibold">
@@ -42,7 +42,7 @@ const Signup = () => {
         </ul>
 
         {/* Forms */}
-        <div className="max-w-6xl mx-auto w-full  p-3.5">
+        <div className="max-w-6xl mx-auto w-full  p-4 bg-[white] rounded-[22px]">
           {/* Step 1: Personal Information */}
           {step === 1 && (
             <div>

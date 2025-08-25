@@ -8,11 +8,11 @@ function AppRoutes() {
 
 function App() {
   return (
-   <div className="m-0 p-0">
+   
      <Router>
       <AppRoutes />
     </Router>
-   </div>
+   
   );
 }
 

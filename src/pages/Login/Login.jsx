@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import logo from "../../assets/BRAINY.svg";
+import logo from "../../assets/LSbrainy.svg";
 import { Link } from "react-router-dom";
 
 const Login = () => {
@@ -14,10 +14,10 @@ const Login = () => {
   };
 
   return (
-    <div className="w-full min-h-screen bg-white flex flex-col items-center">
+    <div className="w-full min-h-screen bg-[#F4F4F4] flex flex-col items-center">
       {/* Navbar */}
       <nav className="w-full py-4 shadow-md flex justify-center bg-white">
-        <img src={logo} alt="Logo" className="h-10" />
+        <Link to= "/"><img src={logo} alt="Logo" className="h-10" /></Link>
       </nav>
 
       <div className="flex justify-center items-center mt-10 text-3xl font-semibold">
@@ -25,7 +25,7 @@ const Login = () => {
       </div>
 
       {/* Login Form */}
-      <div className="max-w-md w-full mt-10 bg-gray-100 p-8 rounded-lg shadow-md">
+      <div className="max-w-md w-full mt-10 bg-white p-8 rounded-[22px] shadow-md">
         <form onSubmit={handleSignIn} className="flex flex-col gap-6">
           {/* Username */}
           <div>

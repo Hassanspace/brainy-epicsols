@@ -4,6 +4,9 @@ import Header from './Header';
 import Whychooseus from './Whychooseus';
 import SocialSection from './SocialSection';
 import HowItWorks from './HowItWorks';
+import SubscriptionSection from './SubscriptionSection';
+import TestimonialsSection from './TestimonialsSection';
+import Footer from './Footer';
 
 const Home = () => {
   return (
@@ -12,7 +15,10 @@ const Home = () => {
     <Whychooseus/>
     <SocialSection/>
     <HowItWorks/>
-    
+    <SubscriptionSection/>
+    <TestimonialsSection/>
+    <Footer/>
+
     </>
   )
 }

@@ -3,6 +3,7 @@ import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
 import Signup from "./pages/Signup/Signup";
 import Login from "./pages/Login/Login";
+import Dashboard from "./pages/Dashboard/Dashboard";
 
 
 const routes = [
@@ -14,6 +15,7 @@ const routes = [
       { path: "/about", element: <About /> },
     { path: "/Signup", element: <Signup /> },
     { path: "/Login", element: <Login/> },
+     { path: "/Dashboard", element: <Dashboard/> },
       
     ],
   },

@@ -58,3 +58,19 @@ html, body {
 .steps .step.step-primary:before {
   background-color: #075E54 !important; /* active = custom green */
 }
+
+.gradient-border {
+  border: 2px solid transparent;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(180deg, #25D366 0%, #704FE6 100%);
+  border-radius: 12px; /* match your design */
+}
+
+.brainyai{
+  background: linear-gradient(90deg, #EDBCFF 0%, #FF5ED2 50%, #34B7F1 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+
+}

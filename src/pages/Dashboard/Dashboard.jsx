@@ -21,7 +21,8 @@ import Friends from "./friends/Friends";
 import Leaderboard from "./leaderboard/Leaderboard";
 import CurrentJob from "./currentjob/CurrentJob";
 import PerformanceReport from "./performancereport/PerformanceReport";
-import BrainyAI from "./brainyai/BrainyAI";
+import BrainyAi from "./brainyai/BrainyAi";
+
 import SubscriptionSetting from "./subscriptionsetting/SubscriptionSetting";
 import Setting from "./setting/Setting";
 
@@ -46,7 +47,7 @@ const tabComponents = {
   Leaderboard: <Leaderboard />,
   "Current Job": <CurrentJob />,
   "Performance Report": <PerformanceReport />,
-  "Brainy AI": <BrainyAI />,
+  "Brainy AI": <BrainyAi />,
   "Subscription Setting": <SubscriptionSetting />,
   Setting: <Setting />,
 };

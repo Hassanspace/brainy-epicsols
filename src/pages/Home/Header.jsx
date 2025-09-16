@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <div
       className="relative bg-cover bg-center bg-no-repeat h-screen w-full  "
-    //   style={{ backgroundImage: `url(${headerImg})` }}
+      style={{ backgroundImage: `url(${headerImg})` }}
     >
       <Navbar />
 
@@ -18,17 +18,17 @@ const Header = () => {
       <section className="absolute bottom-16 z-10 w-full px-8">
         <div className="max-w-3xl text-left">
           {/* Small Badge */}
-          <span className="inline-block bg-[#80808034] backdrop-blur-[32px] text-black text-sm font-semibold px-3 py-1 rounded-full mb-4">
+          <span className="inline-block bg-[#80808034] backdrop-blur-[32px] text-white text-sm font-semibold px-3 py-1 rounded-full mb-4">
             BRAINY
           </span>
 
           {/* Main Heading */}
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight text-black">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight text-white">
             Prepare Smarter, Not Harder!
           </h1>
 
           {/* Subheading */}
-          <p className="mt-4 text-lg text-black">
+          <p className="mt-4 text-lg text-white">
             Gamify your preparation for{" "}
             <span className="font-semibold">CSS, PMS, PPSC, FPSC</span>, and
             more.

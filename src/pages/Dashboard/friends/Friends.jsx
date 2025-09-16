@@ -1,62 +1,55 @@
 import React, { useState } from "react";
 import { FaEllipsisH } from "react-icons/fa";
-import { UserPlus, Gift , UserStar , MessageSquarePlus , PartyPopper} from "lucide-react"; // Tab icons
+import { UserStar, MessageSquarePlus, PartyPopper } from "lucide-react"; // Tab icons
 import profile1 from "../../../assets/profile1.svg";
 import profile2 from "../../../assets/profile2.svg";
 import profile3 from "../../../assets/profile3.svg";
 
-const Friends = () => {
+const Friends = ({ onFriendClick }) => {
   const [activeTab, setActiveTab] = useState("All Friends");
 
   const tabs = [
     { name: "All Friends", icon: UserStar },
     { name: "Friend Request", icon: MessageSquarePlus },
     { name: "Celebrations", icon: PartyPopper },
-    
   ];
 
   const friendsData = {
     "All Friends": [
-      { name: "Alison Jordon", level: 20, image: profile1 },
-      { name: "John Doe", level: 15, image: profile2 },
-      { name: "Jane Smith", level: 12, image: profile3 },
-      { name: "Alison Jordon", level: 20, image: profile1 },
-      { name: "John Doe", level: 15, image: profile2 },
-      { name: "Jane Smith", level: 12, image: profile3 },
-      { name: "Alison Jordon", level: 20, image: profile1 },
-      { name: "John Doe", level: 15, image: profile2 },
-      { name: "Jane Smith", level: 12, image: profile3 },
-      { name: "Alison Jordon", level: 20, image: profile1 },
-      { name: "John Doe", level: 15, image: profile2 },
-      { name: "Jane Smith", level: 12, image: profile3 },
+      { id: "1", name: "Alison Jordon", level: 20, image: profile1, email: "alison@example.com", bio: "Enjoys online learning" },
+      { id: "2", name: "John Doe", level: 15, image: profile2, email: "john@example.com", bio: "Gym buddy" },
+      { id: "3", name: "Jane Smith", level: 12, image: profile3, email: "jane@example.com", bio: "Study partner" },
     ],
     "Friend Request": [
-      { name: "Mark Spencer", level: 8, image: profile1 },
-      { name: "Lucy Liu", level: 10, image: profile2 },
-      { name: "Kevin Hart", level: 5, image: profile3 },
-      { name: "Mark Spencer", level: 8, image: profile1 },
-      { name: "Lucy Liu", level: 10, image: profile2 },
-      { name: "Kevin Hart", level: 5, image: profile3 },
-      { name: "Mark Spencer", level: 8, image: profile1 },
-      { name: "Lucy Liu", level: 10, image: profile2 },
-      { name: "Kevin Hart", level: 5, image: profile3 },
-      { name: "Mark Spencer", level: 8, image: profile1 },
-      { name: "Lucy Liu", level: 10, image: profile2 },
-      { name: "Kevin Hart", level: 5, image: profile3 },
+      {
+        id: "4",
+        name: "Mark Spencer",
+        level: 8,
+        image: profile1,
+        email: "mark@example.com",
+        bio: "Loves gaming and coding",
+      },
+      {
+        id: "5",
+        name: "Lucy Liu",
+        level: 10,
+        image: profile2,
+        email: "lucy@example.com",
+        bio: "Fitness enthusiast",
+      },
+      {
+        id: "6",
+        name: "Kevin Hart",
+        level: 5,
+        image: profile3,
+        email: "kevin@example.com",
+        bio: "Always cracking jokes",
+      },
     ],
     Celebrations: [
-      { name: "Alison Jordon", event: "Birthday", image: profile1 },
-      { name: "John Doe", event: "Level Up", image: profile2 },
-      { name: "Jane Smith", event: "Anniversary", image: profile3 },
-      { name: "Alison Jordon", event: "Birthday", image: profile1 },
-      { name: "John Doe", event: "Level Up", image: profile2 },
-      { name: "Jane Smith", event: "Anniversary", image: profile3 },
-      { name: "Alison Jordon", event: "Birthday", image: profile1 },
-      { name: "John Doe", event: "Level Up", image: profile2 },
-      { name: "Jane Smith", event: "Anniversary", image: profile3 },
-      { name: "Alison Jordon", event: "Birthday", image: profile1 },
-      { name: "John Doe", event: "Level Up", image: profile2 },
-      { name: "Jane Smith", event: "Anniversary", image: profile3 },
+      { id: "7", name: "Alison Jordon", event: "Birthday", image: profile1 },
+      { id: "8", name: "John Doe", event: "Level Up", image: profile2 },
+      { id: "9", name: "Jane Smith", event: "Anniversary", image: profile3 },
     ],
   };
 
@@ -71,7 +64,7 @@ const Friends = () => {
       </div>
 
       {/* Tabs */}
-      <div className="flex flex-col md:flex-row gap-6 mb-6 bg-[#F3F3FA] p-2 rounded-md  justify-center">
+      <div className="flex flex-col md:flex-row gap-6 mb-6 bg-[#F3F3FA] p-2 rounded-md justify-center">
         {tabs.map((tab) => {
           const Icon = tab.icon;
           const isActive = activeTab === tab.name;
@@ -87,9 +80,7 @@ const Friends = () => {
             >
               <Icon
                 className={
-                  isActive
-                    ? "text-[#704FE6]"
-                    : "text-gray-400 hover:text-[#704FE6]"
+                  isActive ? "text-[#704FE6]" : "text-gray-400 hover:text-[#704FE6]"
                 }
               />
               <span>{tab.name}</span>
@@ -100,10 +91,15 @@ const Friends = () => {
 
       {/* Friends Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {friendsData[activeTab].map((friend, index) => (
+        {friendsData[activeTab].map((friend) => (
           <div
-            key={index}
-            className="flex flex-col bg-[#F3F3FA]  rounded-lg p-4 hover:shadow-md transition"
+            key={friend.id}
+            onClick={() =>
+              activeTab === "Friend Request" && onFriendClick?.(friend) // ✅ send full object
+            }
+            className={`flex flex-col bg-[#F3F3FA] rounded-lg p-4 hover:shadow-md transition ${
+              activeTab === "Friend Request" ? "cursor-pointer" : ""
+            }`}
           >
             <div className="flex items-start justify-between">
               {/* Left: Profile Image */}
@@ -117,9 +113,7 @@ const Friends = () => {
               <div className="flex-1 flex flex-col justify-start mx-4">
                 <span className="font-bold text-gray-800">{friend.name}</span>
                 {activeTab !== "Celebrations" && (
-                  <span className="text-sm text-gray-500">
-                    LVL {friend.level}
-                  </span>
+                  <span className="text-sm text-gray-500">LVL {friend.level}</span>
                 )}
                 {activeTab === "Celebrations" && (
                   <span className="text-sm text-green-600">{friend.event}</span>
@@ -132,10 +126,10 @@ const Friends = () => {
               </div>
             </div>
 
-            {/* Confirm/Delete buttons below friend info for Friend Request */}
+            {/* Confirm/Delete buttons for Friend Request */}
             {activeTab === "Friend Request" && (
               <div className="flex gap-2 mt-4">
-                <button className="bg-[#704FE6] h-11 w-28 text-white px-2 py-1 rounded-[8px]  text-s">
+                <button className="bg-[#704FE6] h-11 w-28 text-white px-2 py-1 rounded-[8px] text-s">
                   CONFIRM
                 </button>
                 <button className="border-2 border-[#7A8B94] h-11 w-28 text-[#7A8B94] bg-transparent px-2 py-1 rounded-[8px] text-s">

@@ -74,3 +74,13 @@ html, body {
   
 
 }
+
+.quizesinvite{
+  background: linear-gradient(90deg, rgba(237, 188, 255, 0.1) 0%, rgba(255, 94, 210, 0.1) 50%, rgba(52, 183, 241, 0.1) 100%);
+
+}
+
+.displayquiz{
+  background: linear-gradient(90deg, rgba(237, 188, 255, 0.1) 0%, rgba(255, 94, 210, 0.1) 50%, rgba(52, 183, 241, 0.1) 100%);
+
+}

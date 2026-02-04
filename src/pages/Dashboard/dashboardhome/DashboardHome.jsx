@@ -1,4 +1,7 @@
 import React from "react";
+import quiz from "../../../assets/quiz.png";
+import profile from "../../../assets/profile1.svg"
+import badge from "../../../assets/badge.svg"
 
 const DashboardHome = () => {
   return (
@@ -134,281 +137,334 @@ const DashboardHome = () => {
       </div>
 
       {/* ===== Quizzes + Performance Section ===== */}
-<div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
-  {/* Quizzes Section */}
-  <div className="bg-white rounded-2xl shadow-md p-6">
-    <h3 className="text-lg font-semibold mb-4">Quizzes</h3>
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-      {[1, 2, 3, 4].map((quiz, idx) => (
-        <div
-          key={idx}
-          className="bg-[#F9F9FF] rounded-xl p-4 shadow flex flex-col"
-        >
-          {/* Top Row: Icon + Menu */}
-          <div className="flex justify-between items-start mb-3">
-            <div className="w-10 h-10 bg-[#704FE6]/10 flex items-center justify-center rounded-lg">
-              <img
-                src="/icons/quiz.png"
-                alt="quiz-icon"
-                className="w-6 h-6"
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
+        {/* Quizzes Section */}
+        <div className="bg-white rounded-2xl shadow-md p-6">
+          <h3 className="text-lg font-semibold mb-4">Course Progress</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {[1, 2, 3, 4].map((quiz, idx) => (
+              <div
+                key={idx}
+                className="bg-[#F9F9FF] rounded-xl p-4 shadow flex flex-col"
+              >
+                {/* Top Row: Icon + Menu */}
+                <div className="flex justify-between items-start mb-3">
+                  <div className="w-10 h-10 bg-[#704FE6]/10 flex items-center justify-center rounded-lg">
+                    <img
+                      src="/icons/quiz.png"
+                      alt="quiz-icon"
+                      className="w-6 h-6"
+                    />
+                  </div>
+                  <button className="text-gray-400 hover:text-gray-600">
+                    ⋮
+                  </button>
+                </div>
+
+                {/* Title */}
+                <h4 className="text-sm font-semibold text-gray-800 mb-2">
+                  General Science Quiz
+                </h4>
+
+                {/* Progress Bar */}
+                <div className="relative w-full h-2 bg-gray-200 rounded-full overflow-hidden mb-5">
+                  <div
+                    className="absolute top-0 left-0 h-full bg-[#704FE6]"
+                    style={{ width: "15%" }} // example progress
+                  ></div>
+                </div>
+
+                {/* Progress Label */}
+                <p className="text-xs text-gray-500 text-right">15 / 100%</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Performance Section */}
+        <div className="bg-white rounded-2xl shadow-md p-6 flex flex-col items-center justify-center">
+          <h3 className="text-lg font-semibold mb-4">Performance</h3>
+          {/* Circle Progress (Pure Tailwind + SVG) */}
+          <div className="relative w-40 h-40">
+            <svg className="w-full h-full transform -rotate-90">
+              <circle
+                cx="50%"
+                cy="50%"
+                r="45%"
+                stroke="#E5E7EB"
+                strokeWidth="12"
+                fill="none"
               />
-            </div>
-            <button className="text-gray-400 hover:text-gray-600">⋮</button>
-          </div>
-
-          {/* Title */}
-          <h4 className="text-sm font-semibold text-gray-800 mb-2">
-            General Science Quiz
-          </h4>
-
-          {/* Progress Bar */}
-          <div className="relative w-full h-2 bg-gray-200 rounded-full overflow-hidden mb-5">
-            <div
-              className="absolute top-0 left-0 h-full bg-[#704FE6]"
-              style={{ width: "15%" }} // example progress
-            ></div>
-          </div>
-
-          {/* Progress Label */}
-          <p className="text-xs text-gray-500 text-right">15 / 100%</p>
-        </div>
-      ))}
-    </div>
-  </div>
-
-  {/* Performance Section */}
-  <div className="bg-white rounded-2xl shadow-md p-6 flex flex-col items-center justify-center">
-    <h3 className="text-lg font-semibold mb-4">Performance</h3>
-    {/* Circle Progress (Pure Tailwind + SVG) */}
-    <div className="relative w-40 h-40">
-      <svg className="w-full h-full transform -rotate-90">
-        <circle
-          cx="50%"
-          cy="50%"
-          r="45%"
-          stroke="#E5E7EB"
-          strokeWidth="12"
-          fill="none"
-        />
-        <circle
-          cx="50%"
-          cy="50%"
-          r="45%"
-          stroke="#704FE6"
-          strokeWidth="12"
-          strokeLinecap="round"
-          fill="none"
-          strokeDasharray="283"
-          strokeDashoffset={283 - (283 * 75) / 100} // 75% progress
-        />
-      </svg>
-      <div className="absolute inset-0 flex items-center justify-center">
-        <span className="text-3xl font-bold text-[#704FE6]">75%</span>
-      </div>
-    </div>
-    <p className="mt-4 text-sm text-gray-600">Overall Performance</p>
-  </div>
-</div>
-{/* ==== NEW BIG SECTION ==== */}
-<div className="max-w-7xl mx-auto p-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
-  {/* ===== LEFT SIDE (2 cols) ===== */}
-  <div className="lg:col-span-2 space-y-6">
-    {/* === Question of the Day === */}
-    <div className="bg-white rounded-2xl shadow-md p-6">
-      <h3 className="text-lg font-semibold mb-4">Question of the Day</h3>
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        {[1, 2, 3].map((q, idx) => (
-          <div
-            key={idx}
-            className="bg-[#F9F9FF] rounded-xl p-4 shadow flex flex-col"
-          >
-            <p className="text-sm font-semibold text-gray-700 mb-2">
-              Question {q}
-            </p>
-            <p className="text-xs text-gray-500 mb-4">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </p>
-            <button className="px-4 py-2 bg-[#704FE6] text-white text-xs rounded-lg mt-auto">
-              View Answer
-            </button>
-          </div>
-        ))}
-      </div>
-    </div>
-
-    {/* === Leaderboard === */}
-    <div className="bg-white rounded-2xl shadow-md p-6">
-      <h3 className="text-lg font-semibold mb-4">Leaderboard</h3>
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-        {[1, 2, 3, 4, 5, 6, 7, 8].map((player, idx) => (
-          <div
-            key={idx}
-            className="bg-[#F9F9FF] rounded-xl p-4 shadow flex flex-col items-center"
-          >
-            {/* Avatar/Icon */}
-            <div className="w-12 h-12 bg-purple-200 rounded-full flex items-center justify-center mb-2">
-              <img src="/icons/avatar.png" alt="avatar" className="w-8 h-8" />
-            </div>
-            <p className="text-sm font-semibold text-gray-700">
-              Player {player}
-            </p>
-            <p className="text-xs text-gray-500 mb-1">Level {player}</p>
-            {/* Coins */}
-            <div className="flex items-center gap-1 text-yellow-500 text-xs">
-              <img src="/icons/coin.png" alt="coin" className="w-4 h-4" />
-              <span>250</span>
+              <circle
+                cx="50%"
+                cy="50%"
+                r="45%"
+                stroke="#704FE6"
+                strokeWidth="12"
+                strokeLinecap="round"
+                fill="none"
+                strokeDasharray="283"
+                strokeDashoffset={283 - (283 * 75) / 100} // 75% progress
+              />
+            </svg>
+            <div className="absolute inset-0 flex items-center justify-center">
+              <span className="text-3xl font-bold text-[#704FE6]">75%</span>
             </div>
           </div>
-        ))}
-      </div>
-    </div>
-
-    {/* === Weekly Progress === */}
-    <div className="bg-white rounded-2xl shadow-md p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-      {/* Left: Progress Circle */}
-      <div className="flex flex-col items-center justify-center">
-        <h4 className="font-semibold mb-4">My Weekly Progress</h4>
-        <div className="relative w-40 h-40">
-          <svg className="w-full h-full">
-            {/* Background Circle */}
-            <circle
-              cx="50%"
-              cy="50%"
-              r="45%"
-              stroke="#E5E7EB"
-              strokeWidth="10"
-              fill="none"
-            />
-            {/* Completed */}
-            <circle
-              cx="50%"
-              cy="50%"
-              r="45%"
-              stroke="#22C55E"
-              strokeWidth="10"
-              fill="none"
-              strokeDasharray="283"
-              strokeDashoffset={283 - (283 * 60) / 100} // 60%
-              strokeLinecap="round"
-            />
-            {/* In Progress */}
-            <circle
-              cx="50%"
-              cy="50%"
-              r="35%"
-              stroke="#3B82F6"
-              strokeWidth="8"
-              fill="none"
-              strokeDasharray="220"
-              strokeDashoffset={220 - (220 * 30) / 100}
-              strokeLinecap="round"
-            />
-          </svg>
+          <p className="mt-4 text-sm text-gray-600">Overall Performance</p>
         </div>
       </div>
+      {/* ==== NEW BIG SECTION ==== */}
+      <div className="max-w-7xl mx-auto p-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
+        {/* ===== LEFT SIDE (2 cols) ===== */}
+        <div className="lg:col-span-2 space-y-6">
+          {/* === Question of the Day === */}
+          <div className="bg-white rounded-2xl shadow-md p-6">
+            <h3 className="text-lg font-semibold mb-4">Question of the Day</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              {[1, 2, 3].map((q, idx) => (
+                <div
+                  key={idx}
+                  className="bg-[#F9F9FF] rounded-xl p-4 shadow flex flex-col"
+                >
+                  <p className="text-sm font-semibold text-gray-700 mb-2">
+                    Question {q}
+                  </p>
+                  <p className="text-xs text-gray-500 mb-4">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  </p>
+                  <button className="px-4 py-2 bg-[#704FE6] text-white text-xs rounded-lg mt-auto">
+                    View Answer
+                  </button>
+                </div>
+              ))}
+            </div>
+          </div>
 
-      {/* Right: Stats */}
-      <div className="flex flex-col justify-center space-y-4">
-        <p className="text-gray-600">⏱️ 12h 12m (Last Week)</p>
-        <div>
-          <p className="text-sm text-gray-600">Completed</p>
-          <p className="font-semibold">12 / 20</p>
-        </div>
-        <div>
-          <p className="text-sm text-gray-600">In Progress</p>
-          <p className="font-semibold">5 / 20</p>
-        </div>
-        <div>
-          <p className="text-sm text-gray-600">Not Started</p>
-          <p className="font-semibold">3 / 20</p>
-        </div>
-      </div>
-    </div>
-  </div>
+          {/* ==== Leaderboard Cards ==== */}
+               <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 bg-[#F3F3FA] p-4 rounded-[12px]">
+                 {[1, 2, 3, 4, 5, 6].map((player, idx) => (
+                   <div
+                     key={idx}
+                     className="bg-[#F9F9FF] rounded-xl p-4 shadow flex flex-col items-center gap-2 w-44"
+                   >
+                     {/* Avatar */}
+                     <div className=" rounded-full flex items-center justify-center mb-2">
+                       <img src={profile} alt="avatar" className="w-12 h-12" />
+                     </div>
+                     {/* Name + Level */}
+                     <p className="text-sm font-semibold text-gray-700">
+                       Stephen Grant {player}
+                     </p>
+                    
+                     {/* Coins */}
+                     <div className="flex items-center gap-1 text-yellow-500 text-xs">
+                       <img src={badge} alt="coin" className="w-4 h-4" />
+                        <p className="text-xs text-gray-500 mb-1"> {player} LVL</p>
+                     </div>
+                   </div>
+                 ))}
+               </div>
+          {/* === Weekly Progress === */}
+          <div className="bg-white rounded-2xl shadow-md p-6">
+            <h4 className="font-semibold mb-6">My Last Week Progress</h4>
 
-  {/* ===== RIGHT SIDE (1 col) ===== */}
-  <div className="space-y-6">
-    {/* === My Friends === */}
-    <div className="bg-white rounded-2xl shadow-md p-6">
-      <h3 className="text-lg font-semibold mb-4">My Friends</h3>
-      <div className="space-y-4">
-        {[1, 2, 3 , 4 , 5 , 6].map((friend, idx) => (
-          <div
-            key={idx}
-            className="flex items-center justify-between bg-[#F9F9FF] p-3 rounded-xl shadow"
-          >
-            {/* Left: Avatar + Name */}
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-purple-200 flex items-center justify-center">
-                <img
-                  src="/icons/friend.png"
-                  alt="friend"
-                  className="w-6 h-6"
-                />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+              {/* Left: Progress Rings */}
+              <div className="flex justify-center">
+                <div className="relative w-44 h-44">
+                  <svg className="w-full h-full -rotate-90">
+                    {/* Base Circle */}
+                    <circle
+                      cx="50%"
+                      cy="50%"
+                      r="70"
+                      stroke="#E5E7EB"
+                      strokeWidth="10"
+                      fill="none"
+                    />
+
+                    {/* Completed */}
+                    <circle
+                      cx="50%"
+                      cy="50%"
+                      r="70"
+                      stroke="#8B5CF6" // purple
+                      strokeWidth="10"
+                      fill="none"
+                      strokeDasharray="440"
+                      strokeDashoffset={440 - (440 * 30) / 100}
+                      strokeLinecap="round"
+                    />
+
+                    {/* In Progress */}
+                    <circle
+                      cx="50%"
+                      cy="50%"
+                      r="55"
+                      stroke="#22C55E" // green
+                      strokeWidth="10"
+                      fill="none"
+                      strokeDasharray="345"
+                      strokeDashoffset={345 - (345 * 36) / 100}
+                      strokeLinecap="round"
+                    />
+
+                    {/* Not Started */}
+                    <circle
+                      cx="50%"
+                      cy="50%"
+                      r="40"
+                      stroke="#EF4444" // red
+                      strokeWidth="10"
+                      fill="none"
+                      strokeDasharray="251"
+                      strokeDashoffset={251 - (251 * 36) / 100}
+                      strokeLinecap="round"
+                    />
+                  </svg>
+                </div>
               </div>
-              <div>
-                <p className="text-sm font-semibold text-gray-800">
-                  Friend {friend}
-                </p>
-                <p className="text-xs text-gray-500">Level {friend}</p>
+
+              {/* Right: Stats */}
+              <div className="space-y-6">
+                <div>
+                  <p className="text-xl font-semibold">12 h 12 min</p>
+                  <p className="text-xs text-gray-500 uppercase tracking-wide">
+                    Last Week Total Hours
+                  </p>
+                </div>
+
+                {/* Legend */}
+                <div className="space-y-3 flex items-center gap-7">
+                  <div className="flex flex-col items-center gap-3 text-sm">
+                    <div className="flex items-center gap-2">
+                      <div className="w-3 h-3 rounded-full bg-purple-500"></div>
+                      <div className="font-medium text-gray-700">18/60</div>
+                    </div>
+                    <span className="text-gray-500">Completed</span>
+                  </div>
+
+                  <div className="flex flex-col items-center gap-3 text-sm">
+                    <div className="flex gap-2 items-center">
+                      <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                      <div className="font-medium text-gray-700">22/60</div>
+                    </div>
+                    <span className="text-gray-500">In Progress</span>
+                  </div>
+
+                  <div className="flex flex-col items-center gap-3 text-sm mb-[13px]">
+                    <div className="items-center flex gap-2">
+                      <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                      <div className="font-medium text-gray-700">22/60</div>
+                    </div>
+                    <span className="text-gray-500">Not Started</span>
+                  </div>
+                </div>
               </div>
             </div>
-            {/* Right Arrow */}
-            <span className="text-gray-400">→</span>
           </div>
-        ))}
-      </div>
-    </div>
+        </div>
 
-    {/* === Upcoming Activities === */}
-    <div className="bg-white rounded-2xl shadow-md p-6">
-      <h3 className="text-lg font-semibold mb-4">Upcoming Activities</h3>
-      {/* Search */}
-      <div className="relative mb-4">
-        <input
-          type="text"
-          placeholder="Search..."
-          className="w-full pl-10 pr-4 py-2 border rounded-lg text-sm"
-        />
-        <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
-          🔍
-        </span>
-      </div>
-      {/* Activity Cards */}
-      <div className="space-y-4">
-        {[1, 2 , ].map((act, idx) => (
-          <div
-            key={idx}
-            className="flex items-center justify-between bg-[#F9F9FF] p-3 rounded-xl shadow"
-          >
-            {/* Left: Icon + Info */}
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-blue-200 flex items-center justify-center">
-                <img
-                  src="/icons/activity.png"
-                  alt="activity"
-                  className="w-6 h-6"
-                />
-              </div>
-              <div>
-                <p className="text-sm font-semibold text-gray-800">
-                  Activity {act}
-                </p>
-                <p className="text-xs text-gray-500">Level {act}</p>
-              </div>
-            </div>
-            {/* Right: Date + Menu */}
-            <div className="flex flex-col items-end text-xs">
-              <span className="text-gray-500">12-09-2025</span>
-              <button className="text-gray-400 hover:text-gray-600">⋮</button>
+        {/* ===== RIGHT SIDE (1 col) ===== */}
+        <div className="space-y-6">
+          {/* === My Friends === */}
+          <div className="bg-white rounded-2xl shadow-md p-6">
+            <h3 className="text-lg font-semibold mb-4">My Friends</h3>
+            <div className="space-y-4">
+              {[1, 2, 3, 4, 5, 6].map((friend, idx) => (
+                <div
+                  key={idx}
+                  className="flex items-center justify-between bg-[#F9F9FF] p-3 rounded-xl shadow"
+                >
+                  {/* Left: Avatar + Name */}
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-purple-200 flex items-center justify-center">
+                      <img
+                        src={profile}
+                        alt="friend"
+                        className="w-6 h-6"
+                      />
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-gray-800">
+                        Friend {friend}
+                      </p>
+                      <p className="text-xs text-gray-500">Level {friend}</p>
+                    </div>
+                  </div>
+                  {/* Right Arrow */}
+                  <span className="text-gray-400">→</span>
+                </div>
+              ))}
             </div>
           </div>
-        ))}
-      </div>
-    </div>
-  </div>
-</div>
 
+          {/* === Upcoming Activities === */}
+          <div className="bg-[#F7F8FC] rounded-2xl p-6 w-full max-w-sm">
+            <h3 className="text-xs font-semibold text-gray-500 uppercase mb-4">
+              Upcoming Activities
+            </h3>
+
+            {/* Search */}
+            <div className="relative mb-5">
+              <input
+                type="text"
+                placeholder="Search Here"
+                className="w-full pl-4 pr-10 py-2 text-sm rounded-full bg-white border border-gray-200 focus:outline-none"
+              />
+              <span className="absolute right-4 top-1/2 -translate-y-1/2 text-green-500">
+                🔍
+              </span>
+            </div>
+
+            {/* Activity List */}
+            <div className="space-y-4">
+              {[
+                { title: "Math Quiz", type: "Quiz" },
+                {
+                  title: "Data Science",
+                  type: "Assignment",
+                },
+                { title: "Python", type: "Webinar" },
+                {
+                  title: "Data Science",
+                  type: "Assignment",
+                },
+                { title: "Math Quiz", type: "Quiz" },
+              ].map((item, idx) => (
+                <div key={idx} className="flex items-center justify-between">
+                  {/* Left */}
+                  <div className="flex items-center gap-3">
+                    <img
+                      src={quiz}
+                      alt="activity"
+                      className="w-10 h-10 rounded-full object-cover"
+                    />
+
+                    <div>
+                      <p className="text-sm font-semibold text-gray-800 leading-tight">
+                        {item.title}
+                      </p>
+                      <p className="text-[10px] uppercase tracking-wide text-gray-400">
+                        {item.type}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Right */}
+                  <div className="flex flex-col-reverse items-center gap-3 text-xs text-gray-400">
+                    <div>5th Jan</div>
+                    <button className="text-gray-400 hover:text-gray-600 text-lg leading-none">
+                      ⋯
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
